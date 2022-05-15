@@ -1,11 +1,11 @@
 import Notiflix from 'notiflix';
 
 const formEl = document.querySelector('.form');
-console.log(formEl);
 formEl.addEventListener('submit', onSubmitForm);
 
 function onSubmitForm(event) {
   event.preventDefault();
+
   // formEl.textContent = '';
   const obj = {
     delay: Number(formEl.delay.value),
@@ -27,6 +27,7 @@ function onSubmitForm(event) {
       });
     delayStep += obj.step;
   }
+  event.currentTarget.reset();
 }
 
 function createPromise(position, delay) {
